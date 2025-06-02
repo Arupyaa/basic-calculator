@@ -17,15 +17,20 @@ body{
     border: 10px solid gray;
     background-color: beige;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    text-align: center;
-    
+    text-align: right;
     border-radius: 4px 4px 0px 0px;
+    width: 300px;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
 #button-layout{
+    width: 300px;
+    box-sizing: border-box;
     flex: auto;
     
     display: flex;
