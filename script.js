@@ -11,12 +11,14 @@ for (let element of btn_num) {
 for (let element of btn_operator) {
     element.addEventListener("click", function (e) { parseOperator(e.target) });
 }
+btn_equal.addEventListener("click",calculatorOperate);
 
 let calculator = {
     num1: 0,
     num2: 0,
     operator: '',
-    isSecondNumber: false
+    isSecondNumber: false,
+    isOperatedOn:false
 };
 
 function parseNumber(target) {
@@ -27,8 +29,11 @@ function parseNumber(target) {
         calculator.isSecondNumber = true;
     }
 
-    if (display.textContent == '0')
+    if (display.textContent == '0' || calculator.isOperatedOn)
+    {
         display.textContent = target.textContent;
+        calculator.isOperatedOn = false;
+    }
     else
         display.textContent += target.textContent;
 
@@ -36,7 +41,10 @@ function parseNumber(target) {
 }
 
 function parseOperator(target) {
-    if (calculator.operator === '') {
+    //take no action if operator button was pressed directly after equal button
+    if(calculator.isOperatedOn)
+        return
+    else if (calculator.operator === '') {
         calculator.num1 = Number(display.textContent);
     }
     //call operate on the current 2 numbers if parseOperator was called after a second number was entered
@@ -48,5 +56,38 @@ function parseOperator(target) {
 }
 
 function calculatorOperate(){
+    //check if user reclicked equal again or clicked it without entering a second number
+    if(calculator.isOperatedOn ||!calculator.isSecondNumber)
+        return
 
+    let result = 0;
+    if(calculator.isSecondNumber)
+        calculator.num2 = Number(display.textContent);
+
+    switch(calculator.operator)
+    {
+        case '+':
+            result = calculator.num1 + calculator.num2;
+            break;
+        case '-':
+            result = calculator.num1 - calculator.num2;
+            break;
+        case '*':
+            result = calculator.num1 * calculator.num2;
+            break;
+        case '/':
+            result = calculator.num1 / calculator.num2;
+            break;
+        case '%':
+            result = calculator.num1 % calculator.num2;
+            break;
+    }
+    display.textContent = result;
+    calculator.isSecondNumber = false;
+    calculator.operator = '';
+    calculator.num1 = 0;
+    calculator.num2 = 0;
+    calculator.isOperatedOn = true;
+
+    return result;
 }
