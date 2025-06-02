@@ -12,6 +12,8 @@ for (let element of btn_operator) {
     element.addEventListener("click", function (e) { parseOperator(e.target) });
 }
 btn_equal.addEventListener("click", calculatorOperate);
+btn_cancel.addEventListener("click",calculatorClear);
+btn_erase.addEventListener("click",calculatorErase);
 
 let calculator = {
     num1: 0,
@@ -93,4 +95,26 @@ function calculatorOperate() {
     calculator.isOperatedOn = true;
 
     return result;
+}
+
+function calculatorClear()
+{
+    display.textContent = '0';
+    calculator.isSecondNumber = false;
+    calculator.isOperatedOn = false;
+    calculator.operator = '';
+    calculator.num1 = 0;
+    calculator.num2 = 0;
+}
+
+function calculatorErase()
+{
+    if(display.textContent.length ==1)
+    {
+        display.textContent = '0';
+    }
+    else
+    {
+    display.textContent = display.textContent.substring(0,display.textContent.length-1);
+    }
 }
