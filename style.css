@@ -20,7 +20,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    
     border-radius: 4px 4px 0px 0px;
 }
 
@@ -44,9 +44,6 @@ body{
     justify-content: space-around;
 }
 
-#padding-btn{
-    visibility: hidden;
-}
 
 button{
     width: 55px;
