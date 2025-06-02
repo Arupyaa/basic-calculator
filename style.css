@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display-container{
+    width: 200px;
+    
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+#display-inner{
+    
+    background-color: beige;
+}
+
+
+#button-layout{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    padding: 4px 0px;
+}
+
+#button-layout div{
+    display: flex;
+    gap:8px;
+    justify-content: center;
+}
+
+#padding-btn{
+    visibility: hidden;
+}
+
+button{
+    width: 55px;
+    height: 30px;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+}
