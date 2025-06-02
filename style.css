@@ -1,37 +1,51 @@
 body{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+}
+
+#calculator-body{
+    display: flex;
+    flex-direction: column;
+
+    margin: 30px auto;
 }
 
 #display-container{
-    width: 200px;
-    
+    width: 250px;
+    height: 40px;
+    flex:auto;
     background-color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 #display-inner{
-    
+    flex: 1;
+    width: 100%;
+    height: 100%;
     background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 
 #button-layout{
-    width: 200px;
+    flex: auto;
+    
     display: flex;
     flex-direction: column;
     background-color: bisque;
     padding: 4px 0px;
+    gap: 6px;
 }
 
 #button-layout div{
     display: flex;
     gap:8px;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #padding-btn{
